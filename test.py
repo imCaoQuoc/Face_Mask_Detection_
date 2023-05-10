@@ -6,7 +6,7 @@ model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\model_face_m
 
 face_cascade = cv2.CascadeClassifier("D:\Face_Mask_Detection_\haarcascades\haarcascade_frontalface_default.xml") # đường dẫn đến tệp XML của Haar Cascade
 video_capture = cv2.VideoCapture(0) # mở camera
-labels = {0: 'WithMask', 1: 'NoMask'}
+labels = {0: 'NoMask', 1: 'WithMask'}
 if not video_capture.isOpened():
     print ("Could not open cam")
     exit()
