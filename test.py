@@ -6,7 +6,7 @@ model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\model_face_m
 
 face_cascade = cv2.CascadeClassifier("D:\Face_Mask_Detection_\haarcascades\haarcascade_frontalface_default.xml") # đường dẫn đến tệp XML của Haar Cascade
 video_capture = cv2.VideoCapture(0) # mở camera
-labels = {0: 'Không đeo khẩu trang', 1: 'Đeo khẩu trang'}
+labels = {0: 'WithMask', 1: 'NoMask'}
 if not video_capture.isOpened():
     print ("Could not open cam")
     exit()
@@ -24,10 +24,24 @@ while True:
     print(img_reshape.shape)
     predict = model.predict(img_reshape)
     print(predict)
-    faces = face_cascade.detectMultiScale(gray_resized)
+    prediction_index = np.argmax(predict, axis=-1)[0]
+    prediction_label = labels[prediction_index]
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     for (x, y, w, h) in faces:
-        cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 0, 200), 2)
-    cv2.imshow("face",frame)            
+        cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
+        cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+    cv2.imshow("face",frame)
+        # for (x, y, w, h) in faces:
+        #     # Extract the face region
+        #     face = gray[y:y+h, x:x+w]
+            
+        #     # Resize the face image to the input size of the model
+        #     face = cv2.resize(face, (150, 150))
+        #     face = face.reshape(-1, 150, 150, 3)
+
+        #     # Convert the face image to float32 and normalize it
+        #     face = face.astype(np.float32) / 255.0
+            
         #     # Add a batch dimension to the face image
         #     face = np.expand_dims(face, axis=0)
             
