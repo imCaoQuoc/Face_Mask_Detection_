@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import tensorflow
 
-model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\Face_Mask_Detection_\model.h5", compile=False)
+model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\model_face_mask_detection.h5", compile=False)
 
 face_cascade = cv2.CascadeClassifier("D:\Face_Mask_Detection_\haarcascades\haarcascade_frontalface_default.xml") # đường dẫn đến tệp XML của Haar Cascade
 video_capture = cv2.VideoCapture(0) # mở camera
@@ -15,23 +15,19 @@ while True:
     ret, frame = video_capture.read()
     # Convert the frame to grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    
-    faces = face_cascade.detectMultiScale(gray)
+    gray_resized = cv2.resize(gray, (150, 150))
+    img_color = cv2.cvtColor(gray_resized, cv2.COLOR_GRAY2RGB)
+    img_reshape = np.reshape(img_color, (1, 150, 150, 3))
+    print(gray.shape)
+    print(gray_resized.shape)
+    print(img_color.shape)
+    print(img_reshape.shape)
+    predict = model.predict(img_reshape)
+    print(predict)
+    faces = face_cascade.detectMultiScale(gray_resized)
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 0, 200), 2)
-        print(frame.shape)
-    cv2.imshow("face",frame)
-        # for (x, y, w, h) in faces:
-        #     # Extract the face region
-        #     face = gray[y:y+h, x:x+w]
-            
-        #     # Resize the face image to the input size of the model
-        #     face = cv2.resize(face, (150, 150))
-        #     face = face.reshape(-1, 150, 150, 3)
-
-        #     # Convert the face image to float32 and normalize it
-        #     face = face.astype(np.float32) / 255.0
-            
+    cv2.imshow("face",frame)            
         #     # Add a batch dimension to the face image
         #     face = np.expand_dims(face, axis=0)
             
