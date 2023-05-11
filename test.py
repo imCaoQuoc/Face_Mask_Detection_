@@ -26,7 +26,7 @@ while True:
     prediction_label = labels[prediction_index]
     #faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     results = detector.detect_faces(frame)
-    print(results.shape)
+    print(prediction_label)
     for (x, y, w, h) in results:
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
         cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
