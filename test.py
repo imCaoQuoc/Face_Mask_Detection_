@@ -18,10 +18,6 @@ while True:
     gray_resized = cv2.resize(gray, (150, 150))
     img_color = cv2.cvtColor(gray_resized, cv2.COLOR_GRAY2RGB)
     img_reshape = np.reshape(img_color, (1, 150, 150, 3))
-    print(gray.shape)
-    print(gray_resized.shape)
-    print(img_color.shape)
-    print(img_reshape.shape)
     predict = model.predict(img_reshape)
     print(predict)
     prediction_index = np.argmax(predict, axis=-1)[0]
@@ -31,38 +27,6 @@ while True:
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
         cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
     cv2.imshow("face",frame)
-        # for (x, y, w, h) in faces:
-        #     # Extract the face region
-        #     face = gray[y:y+h, x:x+w]
-            
-        #     # Resize the face image to the input size of the model
-        #     face = cv2.resize(face, (150, 150))
-        #     face = face.reshape(-1, 150, 150, 3)
-
-        #     # Convert the face image to float32 and normalize it
-        #     face = face.astype(np.float32) / 255.0
-            
-        #     # Add a batch dimension to the face image
-        #     face = np.expand_dims(face, axis=0)
-            
-        #     # Predict the label of the face image
-        #     pred = model.predict(face)[0]
-            
-        #     # Get the predicted label index and corresponding label text
-        #     label_idx = np.argmax(pred)
-        #     label_text = labels[label_idx]
-            
-        #     # Draw a rectangle around the face
-        #     color = (0, 255, 0) if label_idx == 1 else (0, 0, 255)
-        #     cv2.rectangle(frame, (x, y), (x+w, y+h), color, 2)
-            
-        #     # Add label text above the rectangle
-        #     cv2.putText(frame, label_text, (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, color, 2)
-
-        # Display the resulting frame
-        #cv2.imshow('frame', frame)
-
-        # Press 'q' to quit
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
