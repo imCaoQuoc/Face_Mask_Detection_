@@ -27,7 +27,8 @@ while True:
     #faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     results = detector.detect_faces(frame)
     print(prediction_label)
-    for (x, y, w, h, c) in results:
+    for result in results:
+        x, y, w, h = result['box']
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
         cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
     cv2.imshow("face",frame)
