@@ -3,12 +3,12 @@ from mtcnn import MTCNN
 import numpy as np
 import tensorflow
 
-model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\model_face_mask_detection.h5", compile=False)
+model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\VGG19.h5", compile=False)
 
 #face_cascade = cv2.CascadeClassifier("D:\Face_Mask_Detection_\haarcascades\haarcascade_frontalface_default.xml") # đường dẫn đến tệp XML của Haar Cascade
 detector = MTCNN()
 video_capture = cv2.VideoCapture(0) # mở camera
-labels = {0: 'NoMask', 1: 'WithMask'}
+labels = {0: 'Mask', 1: 'NoMask'}
 if not video_capture.isOpened():
     print ("Could not open cam")
     exit()
