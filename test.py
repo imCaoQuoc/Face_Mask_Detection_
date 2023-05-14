@@ -31,11 +31,12 @@ while True:
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
-
-    for result in results:
-        x, y, w, h = result['box']
-        cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
         cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+
+    # for result in results:
+    #     x, y, w, h = result['box']
+    #     cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
+    #     cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
     cv2.imshow("face",frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
