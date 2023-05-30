@@ -33,10 +33,11 @@ while True:
     # #   results = detector.detect_faces(frame)
     # print(prediction_label)
 
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+    # faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     # for (x, y, w, h) in faces:
     #     cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
     #     cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=4)
     if len(faces)>=2:
         label = [0 for i in range(len(faces))]
         for i in range(len(faces)-1):
