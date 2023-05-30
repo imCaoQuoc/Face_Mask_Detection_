@@ -23,6 +23,8 @@ while True:
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     for (x, y, w, h) in faces:
         face = gray[y:y+h, x:x+w]
+        print(gray)
+        print(gray.shape)
         face = cv2.resize(face, (128, 128))
         face = np.reshape(face, [1, 128, 128, 3])
         predict = model.predict(face)
