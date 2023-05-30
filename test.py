@@ -21,14 +21,6 @@ while True:
     img_color = cv2.cvtColor(gray_resized, cv2.COLOR_GRAY2RGB)
     img_reshape = np.reshape(img_color, (1, 128, 128, 3))/255.0
 
-    if len(faces)>=2:
-        label = [0 for i in range(len(faces))]
-        for i in range(len(faces)-1):
-            for j in range(i+1, len(faces)):
-                dist = distance.euclidean(faces[i][:2],faces[j][:2])
-                if dist<MIN_DISTANCE:
-                    label[i] = 1
-                    label[j] = 1
     predict = model.predict(img_reshape)
     print(predict)
     
