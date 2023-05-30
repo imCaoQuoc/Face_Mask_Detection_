@@ -16,8 +16,7 @@ while True:
     # Convert the frame to grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
-    for i in range(len(faces)):
-        (x, y, w, h) = faces[i]
+    for (x, y, w, h) in faces:
         face = gray[y:y+h, x:x+w]
         face = cv2.resize(face, (128, 128))
         face = cv2.cvtColor(face, cv2.COLOR_GRAY2RGB)
