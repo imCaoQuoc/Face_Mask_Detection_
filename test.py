@@ -17,16 +17,13 @@ while True:
     ret, frame = video_capture.read()
     # Convert the frame to grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    gray_resized = cv2.resize(gray, (128, 128))
-    img_color = cv2.cvtColor(gray_resized, cv2.COLOR_GRAY2RGB)
-    img_reshape = np.reshape(img_color, (1, 128, 128, 3))/255.0
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     for (x, y, w, h) in faces:
         face = gray[y:y+h, x:x+w]
-        print(gray)
-        print(gray.shape)
         face = cv2.resize(face, (128, 128))
-        face = np.reshape(face, [1, 128, 128, 3])
+        face = cv2.cvtColor(face, cv2.COLOR_GRAY2RGB)
+        print(face.shape)
+        face = np.reshape(face, [1, 128, 128, 3])/255.0
         predict = model.predict(face)
         print(predict)
         prediction_index = np.argmax(predict, axis=-1)[0]
