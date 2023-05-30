@@ -38,7 +38,7 @@ while True:
     #     cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
     #     cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=4)
-    if len(faces)>=2:
+    if len(faces)>=1:
         label = [0 for i in range(len(faces))]
         for i in range(len(faces)-1):
             for j in range(i+1, len(faces)):
@@ -53,8 +53,8 @@ while True:
         crop = cv2.resize(crop,(128,128))
         crop = np.reshape(crop,[1,128,128,3])/255.0
         mask_result = model.predict(crop)
-        cv2.putText(new_img,mask_label[mask_result.argmax()],(x, y-10),cv2.FONT_HERSHEY_SIMPLEX,0.5,dist_label[label[i]],2)
-        cv2.rectangle(new_img,(x,y),(x+w,y+h),dist_label[label[i]],1)
+        cv2.rectangle(frame,(x,y),(x+w,y+h),dist_label[label[i]],2)
+        cv2.putText(frame,mask_label[mask_result.argmax()],(x, y-10),cv2.FONT_HERSHEY_SIMPLEX,0.5,dist_label[label[i]],2)
     cv2.imshow("face",frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
