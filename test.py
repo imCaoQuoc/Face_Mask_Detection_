@@ -20,17 +20,14 @@ while True:
     gray_resized = cv2.resize(gray, (128, 128))
     img_color = cv2.cvtColor(gray_resized, cv2.COLOR_GRAY2RGB)
     img_reshape = np.reshape(img_color, (1, 128, 128, 3))/255.0
-
-    predict = model.predict(img_reshape)
-    print(predict)
-    
-    prediction_index = np.argmax(predict, axis=-1)[0]
-    prediction_label = labels[prediction_index]
-    #   results = detector.detect_faces(frame)
-    print(prediction_label)
-
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     for (x, y, w, h) in faces:
+        predict = model.predict(img_reshape)
+        print(predict)
+        prediction_index = np.argmax(predict, axis=-1)[0]
+        prediction_label = labels[prediction_index]
+        #   results = detector.detect_faces(frame)
+        print(prediction_label)
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
         cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
     cv2.imshow("face",frame)
