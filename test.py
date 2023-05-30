@@ -21,9 +21,9 @@ while True:
     ret, frame = video_capture.read()
     # Convert the frame to grayscale
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    gray_resized = cv2.resize(gray, (128, 128))
-    img_color = cv2.cvtColor(gray_resized, cv2.COLOR_GRAY2RGB)
-    img_reshape = np.reshape(img_color, (1, 128, 128, 3))/255.0
+    # gray_resized = cv2.resize(gray, (128, 128))
+    # img_color = cv2.cvtColor(gray_resized, cv2.COLOR_GRAY2RGB)
+    # img_reshape = np.reshape(img_color, (1, 128, 128, 3))/255.0
 
     # predict = model.predict(img_reshape)
     # print(predict)
