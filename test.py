@@ -21,7 +21,6 @@ while True:
         face = cv2.cvtColor(face, cv2.COLOR_GRAY2RGB)
         face = np.reshape(face, [1, 224, 224, 3])/255.0
         predict = model.predict(face)
-        print(predict)
         prediction_index = np.argmax(predict, axis=-1)[0]
         prediction_label = labels[prediction_index]
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
