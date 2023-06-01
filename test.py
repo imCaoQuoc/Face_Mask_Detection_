@@ -1,10 +1,9 @@
 import cv2
-from mtcnn import MTCNN
 import numpy as np
 import tensorflow
 
 model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\mask_detector.h5", compile=False)
-face_cascade = cv2.CascadeClassifier("D:\Face_Mask_Detection_\haarcascades\haarcascade_frontalface_default.xml") # đường dẫn đến tệp XML của Haar Cascade
+face_cascade = cv2.CascadeClassifier("D:\Face_Mask_Detection_\Face_Mask_Detection_\haarcascades\haarcascade_frontalface_default.xml") # đường dẫn đến tệp XML của Haar Cascade
 video_capture = cv2.VideoCapture(0) # mở camera
 labels = {0: 'Mask', 1: 'NoMask'}
 if not video_capture.isOpened():
@@ -18,9 +17,9 @@ while True:
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
     for (x, y, w, h) in faces:
         face = gray[y:y+h, x:x+w]
-        face = cv2.resize(face, (128, 128))
+        face = cv2.resize(face, (224, 224))
         face = cv2.cvtColor(face, cv2.COLOR_GRAY2RGB)
-        face = np.reshape(face, [1, 128, 128, 3])/255.0
+        face = np.reshape(face, [1, 224, 224, 3])/255.0
         predict = model.predict(face)
         print(predict)
         prediction_index = np.argmax(predict, axis=-1)[0]
