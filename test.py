@@ -1,8 +1,9 @@
 import cv2
+import streamlit as st
 import numpy as np
 import tensorflow
 
-model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\mask_detector.h5", compile=False)
+model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\mp.h5", compile=False)
 face_cascade = cv2.CascadeClassifier("D:\Face_Mask_Detection_\Face_Mask_Detection_\haarcascades\haarcascade_frontalface_default.xml") # đường dẫn đến tệp XML của Haar Cascade
 video_capture = cv2.VideoCapture(0) # mở camera
 labels = {0: 'Mask', 1: 'NoMask'}
@@ -25,6 +26,7 @@ while True:
         prediction_label = labels[prediction_index]
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
         cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+        #st.image(frame, channels="BGR", use_column_width=True)
     cv2.imshow("face",frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
