@@ -3,7 +3,7 @@ import streamlit as st
 import numpy as np
 import tensorflow
 
-model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\mp.h5", compile=False)
+model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\MobileNet.h5", compile=False)
 face_cascade = cv2.CascadeClassifier("D:\Face_Mask_Detection_\Face_Mask_Detection_\haarcascades\haarcascade_frontalface_default.xml") # đường dẫn đến tệp XML của Haar Cascade
 video_capture = cv2.VideoCapture(0) # mở camera
 labels = {0: 'Mask', 1: 'NoMask'}
