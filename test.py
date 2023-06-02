@@ -6,8 +6,8 @@ import cv2
 import numpy as np
 import tensorflow
 
-account_sid = os.environ.get['TWILIO_ACCOUNT_SID']
-auth_token = os.environ.get['TWILIO_AUTH_TOKEN']
+account_sid = os.environ["AC0123456789abcdefabcdefabcdefabcd"]
+auth_token = os.environ["0123456789abcdefabcdefabcdefabcd"]
 client = Client(account_sid, auth_token)
 token = client.tokens.create()
 
