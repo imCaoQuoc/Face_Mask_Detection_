@@ -86,11 +86,11 @@ while cap.isOpened() and not stop_button_pressed:
         prediction_label = labels[prediction_index]
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
         cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
-    # Convert the frame from BGR to RGB format
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        # Convert the frame from BGR to RGB format
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
-    # Display the frame using Streamlit's st.image
-    frame_placeholder.image(frame, channels="RGB")
+        # Display the frame using Streamlit's st.image
+        frame_placeholder.image(frame, channels="RGB")
 
     # Break the loop if the 'q' key is pressed or the user clicks the "Stop" button
     if cv2.waitKey(1) & 0xFF == ord("q") or stop_button_pressed: 
