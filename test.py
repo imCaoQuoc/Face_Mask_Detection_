@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 import tensorflow
 
-cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+cascade = cv2.CascadeClassifier("D:\Face_Mask_Detection_\Face_Mask_Detection_\haarcascades\haarcascade_frontalface_default.xml")
 model = tensorflow.keras.models.load_model("MobileNet.h5", compile=False)
 labels = {0: 'Mask', 1: 'NoMask'}
 
