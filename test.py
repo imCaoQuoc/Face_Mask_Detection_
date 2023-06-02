@@ -1,15 +1,8 @@
-from twilio.rest import Client
 from streamlit_webrtc import webrtc_streamer, RTCConfiguration
 import av
-import os
 import cv2
 import numpy as np
 import tensorflow
-
-account_sid = os.environ['TWILIO_ACCOUNT_SID']
-auth_token = os.environ['TWILIO_AUTH_TOKEN']
-client = Client(account_sid, auth_token)
-token = client.tokens.create()
 
 cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 model = tensorflow.keras.models.load_model("MobileNet.h5", compile=False)
@@ -34,14 +27,8 @@ class VideoProcessor:
 
 		return av.VideoFrame.from_ndarray(frm, format='bgr24')
 
-# webrtc_streamer(key="key", video_processor_factory=VideoProcessor,
-# 				rtc_configuration=RTCConfiguration(
-# 					{"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
-# 					)
-# 	)
-
 webrtc_streamer(key="key", video_processor_factory=VideoProcessor,
 				rtc_configuration=RTCConfiguration(
-					{"iceServers": token.ice_servers}
+					{"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
 					)
 	)
