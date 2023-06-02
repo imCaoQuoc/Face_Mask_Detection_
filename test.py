@@ -76,21 +76,21 @@ while cap.isOpened() and not stop_button_pressed:
     # e.g., apply filters, transformations, or object detection
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
-    for (x, y, w, h) in faces:
-        face = gray[y:y+h, x:x+w]
-        face = cv2.resize(face, (224, 224))
-        face = cv2.cvtColor(face, cv2.COLOR_GRAY2RGB)
-        face = np.reshape(face, [1, 224, 224, 3])/255.0
-        predict = model.predict(face)
-        prediction_index = np.argmax(predict, axis=-1)[0]
-        prediction_label = labels[prediction_index]
-        cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
-        cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
-        # Convert the frame from BGR to RGB format
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    # for (x, y, w, h) in faces:
+    #     face = gray[y:y+h, x:x+w]
+    #     face = cv2.resize(face, (224, 224))
+    #     face = cv2.cvtColor(face, cv2.COLOR_GRAY2RGB)
+    #     face = np.reshape(face, [1, 224, 224, 3])/255.0
+    #     predict = model.predict(face)
+    #     prediction_index = np.argmax(predict, axis=-1)[0]
+    #     prediction_label = labels[prediction_index]
+    #     cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
+    #     cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+    #     # Convert the frame from BGR to RGB format
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
-        # Display the frame using Streamlit's st.image
-        frame_placeholder.image(frame, channels="RGB")
+    # Display the frame using Streamlit's st.image
+    frame_placeholder.image(frame, channels="RGB")
 
     # Break the loop if the 'q' key is pressed or the user clicks the "Stop" button
     if cv2.waitKey(1) & 0xFF == ord("q") or stop_button_pressed: 
