@@ -63,7 +63,6 @@ class VideoProcessor:
 			prediction_label = labels[prediction_index]	
 			cv2.rectangle(frm, (x,y), (x+w, y+h), (0, 255, 0), 2)
 			cv2.putText(frm, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
-			#cv2.rectangle(frm, (x,y), (x+w, y+h), (0,255,0), 3)
 
 		return av.VideoFrame.from_ndarray(frm, format='bgr24')
 
