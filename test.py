@@ -90,7 +90,7 @@ while cap.isOpened() and not stop_button_pressed:
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
         # Display the frame using Streamlit's st.image
-        frame_placeholder.video(frame)
+        frame_placeholder.image(frame, channels="RGB")
 
     # Break the loop if the 'q' key is pressed or the user clicks the "Stop" button
     if cv2.waitKey(1) & 0xFF == ord("q") or stop_button_pressed: 
