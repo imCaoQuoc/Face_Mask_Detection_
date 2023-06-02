@@ -87,7 +87,7 @@ while cap.isOpened() and not stop_button_pressed:
         cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
         cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
         # Convert the frame from BGR to RGB format
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     # Display the frame using Streamlit's st.image
     frame_placeholder.image(frame, channels="RGB")
