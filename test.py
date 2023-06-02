@@ -43,15 +43,24 @@ import cv2
 import numpy as np
 import tensorflow
 
-cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+cascade = cv2.CascadeClassifier("D:\Face_Mask_Detection_\Face_Mask_Detection_\haarcascades\haarcascade_frontalface_default.xml")
+model = tensorflow.keras.models.load_model("D:\Face_Mask_Detection_\MobileNet.h5", compile=False)
+labels = {0: 'Mask', 1: 'NoMask'}
 
 class VideoProcessor:
 	def recv(self, frame):
 		frm = frame.to_ndarray(format="bgr24")
-
-		faces = cascade.detectMultiScale(cv2.cvtColor(frm, cv2.COLOR_BGR2GRAY), 1.1, 3)
+		gray = cv2.cvtColor(frm, cv2.COLOR_BGR2GRAY)
+		faces = cascade.detectMultiScale(gray, 1.1, 5)
 
 		for x,y,w,h in faces:
+			face = gray[y:y+h, x:x+w]
+			face = cv2.resize(face, (224, 224))
+			face = cv2.cvtColor(face, cv2.COLOR_GRAY2RGB)
+			face = np.reshape(face, [1, 224, 224, 3])/255.0
+			predict = model.predict(face)
+			prediction_index = np.argmax(predict, axis=-1)[0]
+			prediction_label = labels[prediction_index]	
 			cv2.rectangle(frm, (x,y), (x+w, y+h), (0,255,0), 3)
 
 		return av.VideoFrame.from_ndarray(frm, format='bgr24')
