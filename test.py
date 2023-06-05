@@ -3,10 +3,12 @@ import av
 import cv2
 import numpy as np
 import tensorflow
+import streamlit as st
 
 cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 model = tensorflow.keras.models.load_model("MobileNet.h5", compile=False)
 labels = {0: 'Mask', 1: 'NoMask'}
+st.title("Face Mask Detection")
 
 class VideoProcessor:
 	def recv(self, frame):
