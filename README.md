@@ -14,7 +14,7 @@ Technologies I used:
   - [Streamlit_webrtc](https://pypi.org/project/streamlit-webrtc/) to load use real-time camera on Streamlit.
   - [Tensorflow](https://www.tensorflow.org/) to build a deep learning model.
   - [OpenCV](https://opencv.org/) doing tasks relate to Computer Vision.
-  - [Streamlit](https://streamlit.io/) to build a simple demo web.
+  - [Sci-kit Learn](https://scikit-learn.org/stable/) to process data.
   - [Streamlit documentation](https://www.youtube.com/playlist?list=PLtqF5YXg7GLmCvTswG32NqQypOuYkPRUE) to learn the basic of streamlit.
 
 ---
