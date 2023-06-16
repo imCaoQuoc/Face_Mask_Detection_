@@ -54,6 +54,9 @@ MobileNet V2 is a lightweight and efficient convolutional neural network (CNN) a
 
 When the demo is starting, press the button START to run the demo. You can also change your device.
 
+
+![alt text](dataset/demo.png)
+
 ---
 
 ### **RESULT**
