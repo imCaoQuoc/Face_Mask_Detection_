@@ -20,7 +20,7 @@ Technologies I used:
 ---
 
 ### **INSTALLATION**
-I highly recommend you using Google Colab to run the TrafficSign.ipynb file because it already has packages and libraries I use. But if you want to run on your local machine, following the instruction below.
+I highly recommend you using Google Colab to run the Face_Mask_Detection.ipynb file because it already has packages and libraries I use. But if you want to run on your local machine, following the instruction below.
   - Install essential libraries and packages:
   
   ```
