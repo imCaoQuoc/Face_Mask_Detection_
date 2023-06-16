@@ -10,8 +10,8 @@ In the wake of the COVID-19 pandemic, face masks have become an essential part o
 This project leverages two powerful deep learning models: Haar Cascade and MobileNet V2. Haar Cascade is a machine learning-based approach that can detect faces in real-time by analyzing the features present in the image. MobileNet V2, on the other hand, is a lightweight convolutional neural network architecture known for its efficiency and accuracy in image classification tasks.
 
 Technologies I used:
-  - [Pillow](https://pypi.org/project/Pillow/) to load an image.
-  - [Numpy](https://numpy.org/) to handle array.
+  - [streamlit](https://streamlit.io/) to create a simple web demo.
+  - [streamlit_webrtc](https://pypi.org/project/streamlit-webrtc/) to load use real-time camera on Streamlit.
   - [Tensorflow](https://www.tensorflow.org/) to build a deep learning model.
   - [Sci-kit learn](https://www.tensorflow.org/) to processing data.
   - [Streamlit](https://streamlit.io/) to build a simple demo web.
