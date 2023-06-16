@@ -45,7 +45,7 @@ WithoutMask: 1918 images
 
 ### **MOBILE NET V2**
 
-Convolutional Neural Networks (CNNs) are a type of deep learning algorithm that have proven to be highly effective in image recognition, classification, and other computer vision tasks. They are inspired by the structure and function of the human visual system, and use a series of convolutional layers to automatically learn and extract features from input images. These features are then processed through a series of fully connected layers, which make predictions about the class of the input image. CNNs have achieved state-of-the-art results in a wide range of applications, including object recognition, facial recognition, and self-driving cars.
+MobileNet V2 is a lightweight and efficient convolutional neural network (CNN) architecture designed for computer vision tasks. MobileNet V2 utilizes depthwise separable convolutions, making it ideal for applications on mobile devices and embedded systems. With its compact design and impressive performance, MobileNet V2 is a popular choice for tasks such as image classification, object detection, and semantic segmentation. This README provides an overview of using MobileNet V2 for the task of facial mask classification using Haar cascade and MobileNet V2.
 
 In this repository, I provide an example of how to build a CNNs model using TensorFlow library in Python. The model is training on an [image dataset](https://www.kaggle.com/datasets/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign?ref=morioh.com&utm_source=morioh.com) and using to classify traffic signs.
 
