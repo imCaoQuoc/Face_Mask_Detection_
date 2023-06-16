@@ -30,7 +30,7 @@ I highly recommend you using Google Colab to run the Face_Mask_Detection.ipynb f
   - Run demo:
   
   ```
-  streamlit run TrafficApp.py
+  streamlit run app.py
   ```
 
 ---
