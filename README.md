@@ -61,7 +61,7 @@ When the demo is starting, press the button START to run the demo. You can also 
 
 ### **RESULT**
 
-A demo will return a traffic sign's class.
+A demo will return whether a person is wearing a face mask or not.
 
 ![alt text](dataset/mask.png)
 ![alt text](dataset/NoMask.png)
