@@ -26,12 +26,6 @@ I highly recommend you using Google Colab to run the Face_Mask_Detection.ipynb f
   ```
   pip install -r requirements.txt
   ```
-  
-  - Run demo:
-  
-  ```
-  streamlit run app.py
-  ```
 
 ---
 
@@ -50,10 +44,13 @@ MobileNet V2 is a lightweight and efficient convolutional neural network (CNN) a
 ---
 
 ### **DEMO**
+  - Run demo:
+  
+  ```
+  streamlit run app.py
+  ```
 
-#### Uploading image
 
-You need to upload your image, it should be in PNG format. 
 
 ---
 
@@ -61,6 +58,5 @@ You need to upload your image, it should be in PNG format.
 
 A demo will return a traffic sign's class.
 
-![alt text](https://github.com/imCaoQuoc/TrafficSign_Classification/blob/main/Screenshot%202023-05-02%20171839.png)
 ![alt text](dataset/mask.png)
 ![alt text](dataset/NoMask.png)
