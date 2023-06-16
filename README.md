@@ -37,13 +37,13 @@ I highly recommend you using Google Colab to run the Face_Mask_Detection.ipynb f
 
 ### **DATA INFORMATION** 
 
-This data 43 classes, which stays for 43 types of traffic sign: 
-
-Data has 51869 labeled images, which splitted into 39239 images for training and 12630 images for testing.
+This data 2 classes: Mask or WithoutMask
+Mask: 1915 images
+WithoutMask: 1918 images
 
 ---
 
-### **CONVOLUTIONAL NEURAL NETWORK**
+### **MOBILE NET V2**
 
 Convolutional Neural Networks (CNNs) are a type of deep learning algorithm that have proven to be highly effective in image recognition, classification, and other computer vision tasks. They are inspired by the structure and function of the human visual system, and use a series of convolutional layers to automatically learn and extract features from input images. These features are then processed through a series of fully connected layers, which make predictions about the class of the input image. CNNs have achieved state-of-the-art results in a wide range of applications, including object recognition, facial recognition, and self-driving cars.
 
