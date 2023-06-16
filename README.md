@@ -32,7 +32,9 @@ I highly recommend you using Google Colab to run the Face_Mask_Detection.ipynb f
 ### **DATA INFORMATION** 
 
 This data 2 classes: Mask or WithoutMask
+
 Mask: 1915 images
+
 WithoutMask: 1918 images
 
 ---
