@@ -1,5 +1,7 @@
-# Face_Mask_Detection_
- 
+# Face Mask Classification using Haar Cascade and MobileNet V2
+
+This project aims to develop a face mask classification system using Haar Cascade and MobileNet V2 deep learning models. The system can determine whether a person is wearing a face mask or not, based on the input image or video.
+
  ---
 
 ### **INTRODUCTION**
