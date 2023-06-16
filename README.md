@@ -52,7 +52,7 @@ MobileNet V2 is a lightweight and efficient convolutional neural network (CNN) a
   streamlit run app.py
   ```
 
-When the demo is starting, press the button START to run the demo.
+When the demo is starting, press the button START to run the demo. You can also change your device.
 
 ---
 
