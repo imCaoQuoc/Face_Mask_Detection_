@@ -5,7 +5,9 @@ This project aims to develop a face mask classification system using Haar Cascad
  ---
 
 ### **INTRODUCTION**
-This project is a traffic sign classifier built using Convolutional Neurol Networks (CNNs). The model is trained on the German Traffic Sign Recognition Benchmark (GTSRB) dataset, which consists of over 50,000 labeled images of 43 different classes of traffic signs. The model is able to classify traffic signs and the demo application allows users to upload an image of a traffic sign and receive a prediction of its class. In the future, I want to improve the project so that it can classify traffic sign in real-time.
+In the wake of the COVID-19 pandemic, face masks have become an essential part of our daily lives to prevent the spread of the virus. Automating the process of face mask detection can be crucial in ensuring compliance with safety guidelines in various settings such as public places, workplaces, and transportation.
+
+This project leverages two powerful deep learning models: Haar Cascade and MobileNet V2. Haar Cascade is a machine learning-based approach that can detect objects in images by analyzing the features present in the image. MobileNet V2, on the other hand, is a lightweight convolutional neural network architecture known for its efficiency and accuracy in image classification tasks.
 
 Technologies I used:
   - [Pillow](https://pypi.org/project/Pillow/) to load an image.
