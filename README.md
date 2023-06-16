@@ -11,7 +11,7 @@ This project leverages two powerful deep learning models: Haar Cascade and Mobil
 
 Technologies I used:
   - [Streamlit](https://streamlit.io/) to create a simple web demo.
-  - [Streamlit_webrtc](https://pypi.org/project/streamlit-webrtc/) to load use real-time camera on Streamlit.
+  - [Streamlit_webrtc](https://pypi.org/project/streamlit-webrtc/) to use real-time camera on Streamlit.
   - [Tensorflow](https://www.tensorflow.org/) to build a deep learning model.
   - [OpenCV](https://opencv.org/) doing tasks relate to Computer Vision.
   - [Sci-kit Learn](https://scikit-learn.org/stable/) to process data.
