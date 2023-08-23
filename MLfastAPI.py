@@ -20,10 +20,10 @@ def detect():
         exit()
     while True:
         # Capture frame-by-frame
-        ret, frame = cap.read()
-        frm = frame.to_ndarray(format="bgr24")
-		gray = cv2.cvtColor(frm, cv2.COLOR_BGR2GRAY)
-		faces = cascade.detectMultiScale(gray, 1.1, 5)
+        _, frame = cap.read()
+        #frm = frame.to_array(format="bgr24")
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        faces = cascade.detectMultiScale(gray, 1.1, 5)
 
         for x,y,w,h in faces:
             face = gray[y:y+h, x:x+w]
@@ -33,8 +33,8 @@ def detect():
             predict = model.predict(face)
             prediction_index = np.argmax(predict, axis=-1)[0]
             prediction_label = labels[prediction_index]	
-            cv2.rectangle(frm, (x,y), (x+w, y+h), (0, 255, 0), 2)
-            cv2.putText(frm, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+            cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2)
+            cv2.putText(frame, prediction_label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
         # Display the captured frame
         cv2.imshow("Camera Feed", frame)
