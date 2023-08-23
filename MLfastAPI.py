@@ -15,7 +15,7 @@ def home():
         content = file.read()
     return HTMLResponse(content=content)
 
-@app.get("/detect")
+@app.post("/detect")
 def detect():
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
