@@ -20,8 +20,9 @@
         h1 {
             color: #333;
         }
-        img {
-            max-width: 100%;
+        video {
+            width: 100%;
+            max-width: 640px;
             height: auto;
             margin-top: 20px;
         }
@@ -38,7 +39,19 @@
 <body>
     <div class="container">
         <h1>Face Mask Detection System</h1>
-        <button onclick="window.location.href='/detect'">Start Detection</button>
+        <button onclick="startVideo()">Start Detection</button>
+        <video id="videoElement" autoplay></video>
     </div>
+    <script>
+        async function startVideo() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const videoElement = document.getElementById('videoElement');
+                videoElement.srcObject = stream;
+            } catch (error) {
+                console.error('Error accessing webcam:', error);
+            }
+        }
+    </script>
 </body>
 </html>
