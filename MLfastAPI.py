@@ -18,4 +18,22 @@ def detect():
     if not cap.isOpened():
         print("Error: Could not open camera.")
         exit()
-    
+    while True:
+        # Capture frame-by-frame
+        ret, frame = cap.read()
+
+        # If the frame was captured successfully, ret will be True
+        if not ret:
+            print("Error: Could not read frame.")
+            break
+
+        # Display the captured frame
+        cv2.imshow("Camera Feed", frame)
+
+        # Press 'q' to exit the loop
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    # Release the capture object and close all windows
+    cap.release()
+    cv2.destroyAllWindows()
