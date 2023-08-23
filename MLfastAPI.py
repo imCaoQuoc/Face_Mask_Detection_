@@ -22,11 +22,6 @@ def detect():
         # Capture frame-by-frame
         ret, frame = cap.read()
 
-        # If the frame was captured successfully, ret will be True
-        if not ret:
-            print("Error: Could not read frame.")
-            break
-
         # Display the captured frame
         cv2.imshow("Camera Feed", frame)
 
