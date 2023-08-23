@@ -10,9 +10,13 @@ cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 model = tensorflow.keras.models.load_model("MobileNet.h5", compile=False)
 labels = {0: 'Mask', 1: 'NoMask'}
 
-@app.get("/")
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/", response_class=HTMLResponse)
 def home():
-    return {"message": "Welcome to Face Mask Detection system"}
+    with open("index.html", "r") as file:
+        content = file.read()
+    return HTMLResponse(content=content)
 
 @app.get("/detect")
 def detect():
