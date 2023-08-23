@@ -14,4 +14,5 @@ def home():
 
 @app.get("/detect")
 def detect():
-    cv2.VideoCapture()
+    cap = cv2.VideoCapture(0)
+    
