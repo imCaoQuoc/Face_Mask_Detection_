@@ -46,6 +46,11 @@ MobileNet V2 is a lightweight and efficient convolutional neural network (CNN) a
 ---
 
 ### **DEMO**
+  - Link demo:
+  ```
+  https://facemaskdetect.streamlit.app/
+  ```
+
   - Run demo:
   
   ```
